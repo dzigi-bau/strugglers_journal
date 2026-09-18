@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  level: 1
+  total_xp: 1
+  title: MyString
+  mind: 1
+  dexterity: 1
+  strength: 1
+  willpower: 1
+  gender: MyString
+  age: 1
+  email: MyString
+  meditation_total_xp: 1
+
+two:
+  username: MyString
+  level: 1
+  total_xp: 1
+  title: MyString
+  mind: 1
+  dexterity: 1
+  strength: 1
+  willpower: 1
+  gender: MyString
+  age: 1
+  email: MyString
+  meditation_total_xp: 1
