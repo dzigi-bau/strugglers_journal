@@ -1,0 +1,66 @@
+<div class="dashboard-layout" style="display: grid; grid-template-columns: 80px 1fr 300px; gap: 20px; padding: 20px;">
+  
+  <!-- LIJEVA SIDEBAR NAVIGACIJA (Notes, Tasks, Journal...) -->
+  <aside class="sidebar" style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+    <div class="logo-box" style="border: 0px solid #000; padding: 10px;">
+        <%= image_tag "logo.png", style: "width: 100%; height: auto;" %>
+    </div>
+    
+    <button style="border-radius: 10px; padding: 10px; width: 100%;">NOTES</button>
+    <button style="border-radius: 10px; padding: 10px; width: 100%;">TASKS</button>
+    <button style="border-radius: 10px; padding: 10px; width: 100%;">JOURNAL</button>
+    <button style="border-radius: 10px; padding: 10px; width: 100%;">...</button>
+  </aside>
+
+  <!-- SREDNJI DIO (Pozdrav + Blokovi sa navikama) -->
+  <main class="main-content" style="display: flex; flex-direction: column; gap: 20px;">
+    
+    <!-- Header: Pozdravna poruka i datum -->
+    <header style="display: flex; justify-content: space-between; align-items: center;">
+      <h2>
+        <%=
+            greeting
+        %>
+      </h2>
+      <div>Date: <%= Date.current %>, Time: <span id="clock"></span></div>
+    </header>
+
+    <!-- Kartica 1: Meditacija -->
+    <div class="habit-card" style="border: 2px solid #000; border-radius: 15px; padding: 20px;">
+      <h3>MEDITACIJA</h3>
+      <%= turbo_frame_tag "meditation_section" do %>
+        <!-- Ovdje ubacujemo formu i pregled meditacije -->
+        <p>Trajanje, XP i dugme za unos...</p>
+      <% end %>
+    </div>
+
+    <!-- Kartica 2: Working Out -->
+    <div class="habit-card" style="border: 2px solid #000; border-radius: 15px; padding: 20px;">
+      <h3>WORKING OUT</h3>
+    </div>
+
+    <!-- Kartica 3: Habit 3 -->
+    <div class="habit-card" style="border: 2px solid #000; border-radius: 15px; padding: 20px;">
+      <h3>HABIT 3</h3>
+    </div>
+
+  </main>
+
+  <!-- DESNI PANEL: Profil, Slika, XP, Stats -->
+  <aside class="profile-panel" style="border: 2px solid #000; padding: 20px; height: 100%;">
+    <%= turbo_frame_tag "player_stats" do %>
+      <h2>PROFIL</h2>
+      <h3>Player: <%= @player.username %></h3>
+      <div style="width: 100px; height: 100px; border: 1px solid #000; margin-bottom: 15px;">SLIKA</div>
+      <p><strong>XP:</strong> <%= @player.total_xp %></p>
+      <p><strong>STATS:</strong></p>
+      <ul>
+        <li>Mind: <%= @player.mind %></li>
+        <li>Dexterity: <%= @player.dexterity %></li>
+        <li>Strength: <%= @player.strength %></li>
+      </ul>
+      <p>ITD...</p>
+    <% end %>
+  </aside>
+
+</div>
